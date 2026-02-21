@@ -1,0 +1,5 @@
+## Interface: 110100
+## Title: TestAddon
+## Notes: Example addon for testing wow-ui-sim CI
+
+TestAddon.lua
