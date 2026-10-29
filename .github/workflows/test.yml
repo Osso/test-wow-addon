@@ -9,6 +9,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run tests
-        uses: osso/wow-ui-sim@12.0.5
+        uses: osso/wow-ui-sim@v0.1.37
         with:
           addon: TestAddon
+          image-tag: 0.1.37
