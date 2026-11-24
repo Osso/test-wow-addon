@@ -1,15 +1,16 @@
+-- run-tests loads TestAddon from TestAddon.toc before these files run,
+-- so the tests use the addon's own globals and frames.
+
 test("addon frame exists", function()
-    local f = CreateFrame("Frame", "TestAddonFrame", UIParent)
-    assertNotNil(f)
-    assertEquals("TestAddonFrame", f:GetName())
+    assertNotNil(TestAddonFrame)
+    assertEquals("TestAddonFrame", TestAddonFrame:GetName())
+end)
+
+test("addon version", function()
+    assertEquals("1.0.0", TestAddon_GetVersion())
 end)
 
 test("add function works", function()
-    -- Load addon code inline since --no-addons skips TOC loading
-    function TestAddon_Add(a, b)
-        return a + b
-    end
-
     assertEquals(3, TestAddon_Add(1, 2))
     assertEquals(0, TestAddon_Add(-1, 1))
     assertEquals(-5, TestAddon_Add(-2, -3))
